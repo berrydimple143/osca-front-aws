@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+.main-img {
+    background-image: url('https://oscabucket.s3.ap-northeast-1.amazonaws.com/frontend/images/osca-banner.png');
+    background-repeat: no-repeat;
+}
+.registration-img {
+    background-image: url('https://oscabucket.s3.ap-northeast-1.amazonaws.com/frontend/images/osca-banner.png');
+    background-repeat: no-repeat;
+}
+.ra-img {
+    background-image: url('https://oscabucket.s3.ap-northeast-1.amazonaws.com/frontend/images/RA.png');
+    background-repeat: no-repeat;
+}
+.functions-img {
+    background-image: url('https://oscabucket.s3.ap-northeast-1.amazonaws.com/frontend/images/FUNCTIONS.png');
+    background-repeat: no-repeat;
+}
+.downloads-img {
+    background-image: url('https://oscabucket.s3.ap-northeast-1.amazonaws.com/frontend/images/DOWNLOADS.png');
+    background-repeat: no-repeat;
+}
+.policy-img {
+    background-image: url('https://oscabucket.s3.ap-northeast-1.amazonaws.com/frontend/images/Resized-Banner.png');
+    background-repeat: no-repeat;
+}
+.ra-7432-img {
+    background-image: url('https://oscabucket.s3.ap-northeast-1.amazonaws.com/frontend/images/RA-7432.png');
+    background-repeat: no-repeat;
+}
+.ra-9994-img {
+    background-image: url('https://oscabucket.s3.ap-northeast-1.amazonaws.com/frontend/images/RA-9994-1.png');
+    background-repeat: no-repeat;
+}
+.bulacan-logo {
+    background-image: url('https://oscabucket.s3.ap-northeast-1.amazonaws.com/frontend/logos/bulacan_logo.png');
+    background-repeat: no-repeat;
+}
+.malolos-logo {
+    background-image: url('https://oscabucket.s3.ap-northeast-1.amazonaws.com/frontend/logos/malolos_logo.png');
+    background-repeat: no-repeat;
+}
+li > a {
+    color: #735240;
+}
+.divider {
+  border: 1px dotted rgba(180, 185, 181, 1);
+  margin-top: 5px;
+}
+li > a:hover {
+    color: #dd8b32;
+    border-bottom: 1px solid #735240;
+}
+.navbar-color {
+    background-color: #fcffeb;
+}
+.navbar-text {
+    color: #735240;
+}
+.bg-active {
+  background-color: #b88917;
+  color: #fcffeb;
+}
+.btn-main:hover {
+  background-color: #fcffeb;
+  color: #735240;
+  /*box-shadow: 7px 7px rgba(245, 175, 41, 0.4);*/
+}
+.bg-primary {
+  background-color: #dd8b32;
+}
+.bg-secondary {
+  background-color: #e6b82c;
+}
+.bg-tertiary {
+  background-color: #b88917;
+}
+.bg-fourth {
+  background-color: #735240;
+}
+.bg-fifth {
+  background-color: #303030;
+}
+.bg-sixth {
+  background-color: rgba(245, 230, 83, 0.9);
+}
+.text-primary {
+  color: #735240;
+}
+.text-secondary {
+  color: #b88917;
+}
+.text-tertiary {
+  color: #e6b82c;
+}
+.text-fourth {
+  color: #dd8b32;
+}
+.text-fifth {
+  color: #735240;
+}
+.form-width {
+  width: 40rem;
+}
+.text-shadow-sm {
+  text-shadow: 1px 1px 1px #e6b82c;
+}
+.w-89 { width: 15.3rem; }
+.w-90 { width: 25rem; }
+.w-95 { width: 25.5rem; }
+.w-180 { width: 50rem; }
+.w-200 { width: 76.5rem; }
+.w-100 { width: 42rem; }
+.w-150 { width: 100rem; }
+.w-eighty-five { width: 85%; }
+.w-near-full { width: 98%; }
+.w-breadcrumb { width: 800px; }
+.right-30 { right: 7.5rem; }
+.right-26 { right: 6.5rem; }
+
+li button.menu-button {
+  color: #735240;
+  border: none;
+  font-size: 1.10rem;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+li button.menu-button:hover {
+  color: #dd8b32;
+}
+.p-4-custom {
+  padding: 1rem;
+}
+.p-3-custom {
+  padding: 0.85rem;
+}
+/* Modal Loading */
+
+.loader-dots div {
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.loader-dots div:nth-child(1) {
+    left: 8px;
+    animation: loader-dots1 0.6s infinite;
+}
+.loader-dots div:nth-child(2) {
+    left: 8px;
+    animation: loader-dots2 0.6s infinite;
+}
+.loader-dots div:nth-child(3) {
+    left: 32px;
+    animation: loader-dots2 0.6s infinite;
+}
+.loader-dots div:nth-child(4) {
+    left: 56px;
+    animation: loader-dots3 0.6s infinite;
+}
+.ant-table-tbody > tr > td,  .ant-table-thead > tr > th {
+  padding: none;
+  font-size: 10pt;
+}
+section {
+  font-family: 'Inter', sans-serif;
+}
+@keyframes loader-dots1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes loader-dots3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+@keyframes loader-dots2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(24px, 0);
+    }
+}
