@@ -240,10 +240,29 @@ const ReportForm = ({
                 municipalityRef.current.focus();
             } else
             {
-                setReportTitle(`Municipality of ${municipalityName} - ${reportPage} per Barangay from ${dateFromString} to ${dateToString}`);
-                generateData();
-                setCanPrint(true);
-                setCanExport(true);
+                if(dateFrom == '' && dateTo == '')
+                {
+                    message.error('Please provide a starting and an ending date.');
+                    dateFromRef.current.focus();
+                } else if(dateFrom == '')
+                {
+                    message.error('Please provide a starting date.');
+                    dateFromRef.current.focus();
+                } else if(dateTo == '')
+                {
+                    message.error('Please provide an ending date.');
+                    dateToRef.current.focus();
+                } else if(dateTo < dateFrom)
+                {
+                  message.error('Date to should be after or the same as date from.');
+                  dateToRef.current.focus();
+                } else
+                {
+                    setReportTitle(`Municipality of ${municipalityName} - ${reportPage} per Barangay from ${dateFromString} to ${dateToString}`);
+                    generateData();
+                    setCanPrint(true);
+                    setCanExport(true);
+                }
             }
         } else
         {
@@ -260,6 +279,10 @@ const ReportForm = ({
             {
                 message.error('Please provide an ending date.');
                 dateToRef.current.focus();
+            } else if(dateTo < dateFrom)
+            {
+              message.error('Date to should be after or the same as date from.');
+              dateToRef.current.focus();
             } else
             {
                 setReportTitle(`${reportPage} per Municipality from ${dateFromString} to ${dateToString}`);

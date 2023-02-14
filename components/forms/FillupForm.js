@@ -110,7 +110,10 @@ const FillupForm = ({
                         </Form.Item>
                     </div>
                     <div className="w-full sm:w-6/12 md:w-6/12 lg:w-6/12 xl:w-6/12 2xl:w-6/12 px-5 py-0">
-                        <Form.Item label="Email" name="email" rules={[{ required: true, message: 'Email is required.' }]}>
+                        <Form.Item label="Email" name="email" rules={[
+                            { required: true, message: 'Email is required.' },
+                            { type: 'email', message: 'Invalid email address.' }
+                            ]}>
                             <Input
                                 onChange={checkEmail}
                                 style={{ width: '270px' }}

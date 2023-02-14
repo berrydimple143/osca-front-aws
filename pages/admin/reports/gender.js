@@ -99,14 +99,27 @@ export default function Gender()
 
     const setDateInputFrom = (date, dateString) =>
     {
-        setDateFrom(formatDate(date, 'YYYY-MM-DD'));
-        setDateFromString(formatDate(date, 'MMMM DD, YYYY'));
+          if(date)
+          {
+            setDateFrom(formatDate(date, 'YYYY-MM-DD'));
+            setDateFromString(formatDate(date, 'MMMM DD, YYYY'));
+          } else
+          {
+            setDateFrom('');
+            setDateFromString('');
+          }
     }
-
     const setDateInputTo = (date, dateString) =>
     {
-        setDateTo(formatDate(date, 'YYYY-MM-DD'));
-        setDateToString(formatDate(date, 'MMMM DD, YYYY'));
+          if(date)
+          {
+            setDateTo(formatDate(date, 'YYYY-MM-DD'));
+            setDateToString(formatDate(date, 'MMMM DD, YYYY'));
+          } else
+          {
+            setDateTo('');
+            setDateToString('');
+          }
     }
 
     const setRightInput = (value) =>

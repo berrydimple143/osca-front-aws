@@ -58,7 +58,6 @@ const Breadcrumb = ({ title }) =>
         message.success('Password changed successfully.');
         router.reload(window.location.pathname);
     }
-
     const getPassword = async (e) =>
     {
         const { data } = await checkPassword(e.target.value);
@@ -72,7 +71,6 @@ const Breadcrumb = ({ title }) =>
             newPasswordRef.current.focus();
         }
     }
-
     useEffect(() => {
         if(Cookies.get('loggedIn')) {
             setUsername(Cookies.get('user_first_name'));

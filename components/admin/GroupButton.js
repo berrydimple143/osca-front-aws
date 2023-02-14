@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Tooltip } from 'antd';
 
 import {
@@ -19,8 +19,7 @@ const GroupButton = ({
     setSelectedItemForDelete,
     setShowDeleteModal,
     setShowModal,
-    record,
-    index,
+    status,
     setPage,
     getMemberID,
     handlePrint,
@@ -35,7 +34,7 @@ const GroupButton = ({
 
     }, []);
     return (
-        <div className="inline-flex rounded-none shadow-sm" role="group" key={`${index}`}>
+        <div className="inline-flex rounded-none shadow-sm" role="group" key={`${text}`}>
           { memberPage && (
           <>
           <Tooltip title="Print ID" placement="top">
@@ -88,7 +87,7 @@ const GroupButton = ({
           )}
           { userPage && (
           <>
-            <Tooltip title="De-activate" placement="top">
+            <Tooltip title={`${ status === '1' ? 'De-activate' : 'Activate' }`} placement="top">
             <button
               onClick={() => handleActivation(text) }
               type="button" className="py-1 px-2 text-sm font-medium text-gray-900 bg-white rounded-none border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">

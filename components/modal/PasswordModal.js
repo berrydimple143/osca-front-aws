@@ -48,12 +48,13 @@ export default function PasswordModal({
                             { !selectedItemForPassword && (
                               <div className="w-full px-5 py-0">
                                   <Form.Item label="Old Password" name="old_password" rules={[{ required: true, message: 'Old password is required.' }]}>
-                                      <Input.Password
-                                        onPressEnter={getPassword}
+                                      <input
+                                        type="password"
                                         ref={oldPasswordRef}
-                                        style={{ width: '350px' }}
-                                        size="large"
+                                        className="border border-gray-300 p-2 hover:border-blue-300"
                                         placeholder="Type your old password here ..."
+                                        style={{ width: '350px' }}
+                                        onBlur={getPassword}
                                       />
                                   </Form.Item>
                               </div>

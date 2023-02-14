@@ -48,13 +48,27 @@ export default function DataAnalytics()
   }
   const setDateInputFrom = (date, dateString) =>
   {
-      setDateFrom(formatDate(date, 'YYYY-MM-DD'));
-      setDateFromString(formatDate(date, 'MMMM DD, YYYY'));
+      if(date)
+      {
+        setDateFrom(formatDate(date, 'YYYY-MM-DD'));
+        setDateFromString(formatDate(date, 'MMMM DD, YYYY'));
+      } else
+      {
+        setDateFrom('');
+        setDateFromString('');
+      }
   }
   const setDateInputTo = (date, dateString) =>
   {
-      setDateTo(formatDate(date, 'YYYY-MM-DD'));
-      setDateToString(formatDate(date, 'MMMM DD, YYYY'));
+      if(date)
+      {
+        setDateTo(formatDate(date, 'YYYY-MM-DD'));
+        setDateToString(formatDate(date, 'MMMM DD, YYYY'));
+      } else
+      {
+        setDateTo('');
+        setDateToString('');
+      }
   }
   const getData = async () =>
   {
@@ -90,8 +104,27 @@ export default function DataAnalytics()
   {
       if(municipality !== 'all')
       {
-          setGraphTitle(`Total number of senior citizen members of ${municipalityName} from ${dateFromString} to ${dateToString}`);
-          getMunicipalityData(municipality, dateFrom, dateTo);
+          if(dateFrom == '' && dateTo == '')
+          {
+              message.error('Please provide a starting and an ending date.');
+              dateFromRef.current.focus();
+          } else if(dateFrom == '')
+          {
+              message.error('Please provide a starting date.');
+              dateFromRef.current.focus();
+          } else if(dateTo == '')
+          {
+              message.error('Please provide an ending date.');
+              dateToRef.current.focus();
+          } else if(dateTo < dateFrom)
+          {
+              message.error('Date to should be after or the same as date from.');
+              dateToRef.current.focus();
+          } else
+          {
+            setGraphTitle(`Total number of senior citizen members of ${municipalityName} from ${dateFromString} to ${dateToString}`);
+            getMunicipalityData(municipality, dateFrom, dateTo);
+          }
       } else
       {
           if(dateFrom == '' && dateTo == '')
@@ -105,6 +138,10 @@ export default function DataAnalytics()
           } else if(dateTo == '')
           {
               message.error('Please provide an ending date.');
+              dateToRef.current.focus();
+          } else if(dateTo < dateFrom)
+          {
+              message.error('Date to should be after or the same as date from.');
               dateToRef.current.focus();
           } else
           {

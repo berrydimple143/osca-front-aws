@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from 'next/router';
 import { message, Form } from 'antd';
 import Cookies from 'js-cookie';
+import * as cookie from 'cookie';
 import AdminLayout from '../../../components/layouts/AdminLayout';
 import DataTable from '../../../components/admin/DataTable';
 import Modal from '../../../components/modal/Modal';
@@ -254,11 +255,16 @@ export default function User()
     };
 
     useEffect(() => {
-        const roleLabel = `Level: ${role} |`;
-        setBreadcrumb([roleLabel, "Dashboard", ">>", "Users"]);
-        getData();
-        getRoleData();
-        getMunicipalities('all', '', '', '');
+        if(role !== "admin")
+        {
+            router.push('/admin');
+        } else {
+            const roleLabel = `Level: ${role} |`;
+            setBreadcrumb([roleLabel, "Dashboard", ">>", "Users"]);
+            getData();
+            getRoleData();
+            getMunicipalities('all', '', '', '');
+        }
     }, []);
     return (
         <AdminLayout

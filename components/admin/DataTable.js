@@ -36,15 +36,18 @@ const DataTable = ({
   const [columns, setColumns] = useState([]);
   const [searchedColumn, setSearchedColumn] = useState('');
   const searchInput = useRef(null);
+
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
     setSearchText(selectedKeys[0]);
     setSearchedColumn(dataIndex);
   };
+
   const handleReset = (clearFilters) => {
     clearFilters();
     setSearchText('');
   };
+
   const getColumnSearchProps = (dataIndex) => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
       <div
@@ -290,13 +293,14 @@ const DataTable = ({
         },
         {
           title: 'Action',
-          dataIndex: 'id',
+          dataIndex: ['id', 'status'],
           align: 'center',
           fixed: 'right',
           responsive: ["sm"],
           key: 'operation',
           width: 30,
-          render: (text, record, index) => <GroupButton handleActivation={handleActivation} getPasswordId={getPasswordId} userPage={true} setShowDeleteModal={setShowDeleteModal} handleCamera={handleCamera} handleSignature={handleSignature} handlePrint={handlePrint} getMemberID={getMemberID} setSelectedItemForDelete={setSelectedItemForDelete} setSelectedItemForEdit={setSelectedItemForEdit} setShowModal={setShowModal} setPage={setPage} text={`${text}`} record={`${record}`} index={`${index}`} />,
+          render: (text, row) =>
+              <GroupButton handleActivation={handleActivation} getPasswordId={getPasswordId} userPage={true} setShowDeleteModal={setShowDeleteModal} handleCamera={handleCamera} handleSignature={handleSignature} handlePrint={handlePrint} getMemberID={getMemberID} setSelectedItemForDelete={setSelectedItemForDelete} setSelectedItemForEdit={setSelectedItemForEdit} setShowModal={setShowModal} setPage={setPage} text={`${row.id}`} status={`${row.status}`} />
         },
       ];
     }

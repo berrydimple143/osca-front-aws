@@ -21,8 +21,8 @@ const BarChart = ({
 
     const onClick = async (event) => {
       let points = getElementsAtEvent(chartRef.current, event);
-      setLoading(true);
       if(points.length > 0) {
+          setLoading(true);
           let first = points[0];
           let municipality = data.labels[first.index];
           let ps = await router.push({

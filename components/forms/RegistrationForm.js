@@ -271,7 +271,10 @@ export default function RegistrationForm({
                     </Form.Item>
                 </div>
                 <div className="w-full sm:w-6/12 md:w-6/12 lg:w-3/12 xl:w-3/12 2xl:w-3/12 px-10 py-0">
-                    <Form.Item label="E-mail Address" name="email" rules={[{ required: false }]}>
+                    <Form.Item label="E-mail Address" name="email" rules={[
+                        { required: false },
+                        { type: 'email', message: 'Invalid email address.' }
+                        ]}>
                         <Input style={{ width: '270px' }} size="large" className="uppercase" placeholder="Type your email address here ..." />
                     </Form.Item>
                 </div>
